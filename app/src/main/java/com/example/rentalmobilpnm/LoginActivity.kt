@@ -23,16 +23,12 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        // ==========================
         // Ambil ID dari layout
-        // ==========================
-        val edtUsername = findViewById<EditText>(R.id.edtUsername)
+        val edtUsername = findViewById<EditText>(R.id.edtEmail)
         val edtPassword = findViewById<EditText>(R.id.edtPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
-        // ==========================
         // Logika tombol Login
-        // ==========================
         btnLogin.setOnClickListener {
             val username = edtUsername.text.toString().trim()
             val password = edtPassword.text.toString().trim()
