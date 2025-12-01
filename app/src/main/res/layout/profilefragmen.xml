@@ -15,15 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="259dp" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
