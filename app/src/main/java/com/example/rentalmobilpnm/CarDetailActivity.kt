@@ -1,6 +1,7 @@
 package com.example.rentalmobilpnm
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rentalmobilpnm.databinding.ActivityCarDetailBinding
@@ -53,7 +54,22 @@ class CarDetailActivity : AppCompatActivity() {
 
         // tombol sewa (lanjut ke payment nanti)
         binding.btnRent.setOnClickListener {
-            // TODO: implementasi lanjut ke Payment / Confirmation
+            val carName = binding.txtCarName.text.toString()
+            val price = binding.txtPrice.text.toString()
+            val startDate = binding.etStartDate.text.toString()
+            val endDate = binding.etEndDate.text.toString()
+
+            // Hitung total (opsional)
+            val totalPayment = price
+
+            val intent = Intent(this, PaymentConfirmationActivity::class.java)
+            intent.putExtra("car_name", carName)
+            intent.putExtra("price", price)
+            intent.putExtra("start_date", startDate)
+            intent.putExtra("end_date", endDate)
+            intent.putExtra("total", totalPayment)
+
+            startActivity(intent)
         }
     }
 
