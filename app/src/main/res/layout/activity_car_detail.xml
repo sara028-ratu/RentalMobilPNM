@@ -1,51 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <ImageView
-            android:id="@+id/ivDetailCar"
+            android:id="@+id/imgCar"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:scaleType="centerCrop"/>
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/tvDetailBrandModel"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp"
+            android:id="@+id/tvCarName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tvDetailPrice"
+            android:layout_height="wrap_content"
+            android:text="Nama Mobil"
             android:textSize="20sp"
-            android:textColor="#E53935"
             android:textStyle="bold"
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:paddingTop="8dp" />
 
         <TextView
-            android:id="@+id/tvDetailDescription"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"
+            android:id="@+id/tvCarYear"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Tahun" />
+
+        <TextView
+            android:id="@+id/tvCarPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga" />
+
+        <TextView
+            android:id="@+id/tvCarSeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kursi" />
+
+        <TextView
+            android:id="@+id/tvCarFuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bahan Bakar" />
+
+        <TextView
+            android:id="@+id/tvCarTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transmisi" />
+
+        <TextView
+            android:id="@+id/tvCarDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Mobil"
+            android:paddingTop="8dp" />
 
         <Button
-            android:id="@+id/btnRentNow"
+            android:id="@+id/btnRentCar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rent This Car"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#E53935"
-            android:textColor="@android:color/white"/>
+            android:layout_marginTop="16dp"
+            android:text="Sewa Mobil Ini" />
 
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </ScrollView>

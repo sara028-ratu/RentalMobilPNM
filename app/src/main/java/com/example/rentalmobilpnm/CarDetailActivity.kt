@@ -1,8 +1,8 @@
-package com.example.rentcar
+package com.example.rentalmobilpnm
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.rentcar.databinding.ActivityCarDetailBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.rentalmobilpnm.databinding.ActivityCarDetailBinding
 import com.squareup.picasso.Picasso
 
 class CarDetailActivity : AppCompatActivity() {
@@ -14,7 +14,6 @@ class CarDetailActivity : AppCompatActivity() {
         binding = ActivityCarDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // === Ambil data dari Intent ===
         val carName = intent.getStringExtra("car_name")
         val carYear = intent.getStringExtra("car_year")
         val carPrice = intent.getStringExtra("car_price")
@@ -24,7 +23,6 @@ class CarDetailActivity : AppCompatActivity() {
         val carTrans = intent.getStringExtra("car_transmission")
         val carDesc = intent.getStringExtra("car_desc")
 
-        // === Set ke tampilan ===
         binding.tvCarName.text = carName
         binding.tvCarYear.text = carYear
         binding.tvCarPrice.text = carPrice
@@ -33,20 +31,16 @@ class CarDetailActivity : AppCompatActivity() {
         binding.tvCarTrans.text = carTrans
         binding.tvCarDesc.text = carDesc
 
-        // === Load image mobil ===
         Picasso.get()
             .load(carImage)
             .into(binding.imgCar)
 
-        // === Tombol Back ===
         binding.btnBack.setOnClickListener {
             finish()
         }
 
-        // === Tombol Rent This Car ===
         binding.btnRentCar.setOnClickListener {
-            // Arahkan ke halaman transaksi atau form lain
-            // Bisa diganti sesuai kebutuhan
+            // TODO: lanjutkan ke transaksi
         }
     }
 }

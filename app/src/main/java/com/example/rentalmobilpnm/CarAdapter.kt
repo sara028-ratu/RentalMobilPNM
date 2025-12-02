@@ -7,8 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+// Pastikan Car.kt ada di package yang sama (com.example.rentalmobilpnm)
+// sehingga tidak perlu import manual, atau gunakan import yang benar jika beda package.
+
 class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
+    // ViewHolder untuk item mobil
     class CarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivCar: ImageView = itemView.findViewById(R.id.ivCar)
         val tvBrand: TextView = itemView.findViewById(R.id.tvBrand)
@@ -25,11 +29,12 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         val car = cars[position]
 
-        holder.ivCar.setImageResource(car.image)   // ⬅ penting: tampilkan gambar
+        // tampilkan data mobil
+        holder.ivCar.setImageResource(car.image)   // image harus bertipe Int (R.drawable.xxx)
         holder.tvBrand.text = car.brand
         holder.tvModel.text = car.model
         holder.tvPrice.text = car.price
     }
 
-    override fun getItemCount() = cars.size
+    override fun getItemCount(): Int = cars.size
 }
