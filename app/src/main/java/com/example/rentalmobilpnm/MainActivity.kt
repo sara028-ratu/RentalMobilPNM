@@ -1,6 +1,5 @@
 package com.example.rentalmobilpnm
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -23,26 +22,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Cek login
-        if (!isLoggedIn()) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
-
-        // Inisialisasi RecyclerView
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = CarAdapter(carList)
-
-        // Bottom Navigation
+        // ======== BOTTOM NAVIGATION ==========
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        // Set halaman awal
-        loadFragment(HomeFragment())
-
-        // Navigasi menu
+        // Listener menu bottom navbar
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
@@ -58,9 +41,5 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
-    }
-
-    private fun isLoggedIn(): Boolean {
-        return intent.getBooleanExtra("LOGGED_IN", false)
     }
 }
