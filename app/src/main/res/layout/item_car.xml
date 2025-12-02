@@ -54,17 +54,15 @@
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
 
-            <TextView
+            <Button
+                android:id="@+id/btnRent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="#0066CC"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
+                android:backgroundTint="#0066CC"
                 android:text="Sewa Sekarang"
-                android:textColor="@android:color/white"
-                android:textSize="14sp" />
-
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

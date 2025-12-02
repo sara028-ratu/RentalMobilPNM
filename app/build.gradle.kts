@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+
     namespace = "com.example.rentalmobilpnm"
     compileSdk = 36
 
@@ -26,12 +27,19 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
+    }
+
+    // ViewBinding ON
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -43,8 +51,14 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.fragment)
+
+    // Picasso (image loader)
+    implementation("com.squareup.picasso:picasso:2.8")
+
+    // CardView
+    implementation("androidx.cardview:cardview:1.0.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("androidx.cardview:cardview:1.0.0")
 }

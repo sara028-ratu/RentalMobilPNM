@@ -8,67 +8,59 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-data class Car(
-    val brand: String,
-    val model: String,
-    val price: String
-)
-
 class MainActivity : AppCompatActivity() {
 
     private val carList = listOf(
-        Car("Honda", "Civic Turbo", "Rp 650.000/hari"),
-        Car("Toyota", "Fortuner VRZ", "Rp 900.000/hari"),
-        Car("Toyota", "Camry", "Rp 1.200.000/hari"),
-        Car("Honda", "HR-V Prestige", "Rp 750.000/hari"),
-        Car("Toyota", "Innova Reborn", "Rp 800.000/hari"),
-        Car("Toyota", "Camry", "Rp 1.250.000/hari")
+        Car("Honda", "Civic Turbo", "Rp 650.000/hari", R.drawable.civic_turbo),
+        Car("Toyota", "Fortuner VRZ", "Rp 900.000/hari", R.drawable.fortuner_vrz),
+        Car("Toyota", "Camry", "Rp 1.200.000/hari", R.drawable.camry),
+        Car("Honda", "HR-V Prestige", "Rp 750.000/hari", R.drawable.hrv_prestige),
+        Car("Toyota", "Innova Reborn", "Rp 800.000/hari", R.drawable.innova_reborn),
+        Car("Toyota", "Camry", "Rp 1.250.000/hari", R.drawable.camry)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // CEK LOGIN – kalau belum login, lempar ke LoginActivity
+        // Cek login
         if (!isLoggedIn()) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
         }
 
-        // Kalau sudah login, lanjut tampilkan daftar mobil
+        // Inisialisasi RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = CarAdapter(carList)
 
-        // Dibuat Irfan
+        // Bottom Navigation
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        // Set halaman awal (Home) saat aplikasi dibuka
+        // Set halaman awal
         loadFragment(HomeFragment())
 
-        // Logic saat menu diklik
+        // Navigasi menu
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
                 R.id.nav_myorders -> loadFragment(MyOrdersFragment())
-                R.id.nav_help -> loadFragment(HelpFragment()) // Ini tugasmu tadi
+                R.id.nav_help -> loadFragment(HelpFragment())
                 R.id.nav_profile -> loadFragment(ProfileFragment())
             }
             true
         }
     }
 
-    // Fungsi untuk menukar fragment
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
 
-    // Fungsi cek status login (nanti bisa diganti SharedPreferences)
     private fun isLoggedIn(): Boolean {
-        // Sekarang pakai cara paling gampang: cek apakah datang dari LoginActivity
         return intent.getBooleanExtra("LOGGED_IN", false)
     }
 }
