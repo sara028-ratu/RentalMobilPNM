@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class HelpFragment : Fragment() {
+class `HelpFragment.kt` : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +33,7 @@ class HelpFragment : Fragment() {
         val rvHelp = view.findViewById<RecyclerView>(R.id.rvHelp)
 
         // 3. Pasang Adapter
-        val adapter = HelpAdapter(dataList)
+        val adapter = (dataList)
         rvHelp.layoutManager = LinearLayoutManager(context)
         rvHelp.adapter = adapter
     }
