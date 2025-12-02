@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class HelpAdapter(private val listHelp: ArrayList<HelpModel>) :
-    RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
+class HelpAdapter(private val listHelp: ArrayList<HelpModel>) : RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
 
     // 1. ViewHolder: Mengenalkan komponen yang ada di layout item_help_step
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
