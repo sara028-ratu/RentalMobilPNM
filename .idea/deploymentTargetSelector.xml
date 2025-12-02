@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-26T11:55:25.723982700Z">
+        <DropdownSelection timestamp="2025-12-01T09:44:47.096583Z">
           <Target type="DEFAULT_BOOT">
             <template>
               <DeviceId pluginId="FirebaseDirectAccess" type="TEMPLATE" identifier="model_id=tokay/34" />

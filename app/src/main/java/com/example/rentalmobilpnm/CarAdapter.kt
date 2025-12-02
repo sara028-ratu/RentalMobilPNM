@@ -28,7 +28,6 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
         holder.tvBrand.text = car.brand
         holder.tvModel.text = car.model
         holder.tvPrice.text = car.price
-        holder.ivCar.setImageResource(car.imageRes)   // sementara pakai gambar lokal
     }
 
     override fun getItemCount() = cars.size
