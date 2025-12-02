@@ -5,55 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HelpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HelpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Sambungkan ke layout XML
         return inflater.inflate(R.layout.fragment_help, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HelpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HelpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 1. Siapkan Data (Sesuai Gambar Desain)
+        val dataList = arrayListOf<HelpModel>()
+        dataList.add(HelpModel("1", "Browse Cars", "Open the Car List page and select a car you want to rent from our available fleet."))
+        dataList.add(HelpModel("2", "Fill Rental Details", "Choose rental date, duration, driver option, pickup/return address, and any special notes."))
+        dataList.add(HelpModel("3", "Review Order", "Check summary of charges including rental price, service fee, and total amount."))
+        dataList.add(HelpModel("4", "Confirm and Pay", "Confirm your rental details and complete the secure payment process."))
+        dataList.add(HelpModel("5", "Receive Car", "Car is delivered or picked up according to your selected details and schedule."))
+        dataList.add(HelpModel("6", "Return the Car", "Return the car based on the agreed location and schedule. Complete your rental!"))
+
+        // 2. Panggil RecyclerView dari XML
+        val rvHelp = view.findViewById<RecyclerView>(R.id.rvHelp)
+
+        // 3. Pasang Adapter
+        val adapter = HelpAdapter(dataList)
+        rvHelp.layoutManager = LinearLayoutManager(context)
+        rvHelp.adapter = adapter
     }
 }
