@@ -3,8 +3,10 @@ package com.example.rentalmobilpnm
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 data class Car(
     val brand: String,
@@ -32,6 +34,30 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = CarAdapter(carList)
         recyclerView.setHasFixedSize(true)
+
+        // Dibuat Irfan
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        // Set halaman awal (Home) saat aplikasi dibuka
+        loadFragment(HomeFragment())
+
+        // Logic saat menu diklik
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> loadFragment(HomeFragment())
+                R.id.nav_myorders -> loadFragment(MyOrdersFragment())
+                R.id.nav_help -> loadFragment(HelpFragment()) // Ini tugasmu tadi
+                R.id.nav_profile -> loadFragment(ProfileFragment())
+            }
+            true
+        }
+    }
+
+    // Fungsi untuk menukar fragment
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
     // Extension biar toast lebih gampang
