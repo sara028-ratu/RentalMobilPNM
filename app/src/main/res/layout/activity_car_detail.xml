@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivDetailCar"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tvDetailBrandModel"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDetailPrice"
+            android:textSize="20sp"
+            android:textColor="#E53935"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDetailDescription"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnRentNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent This Car"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#E53935"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</ScrollView>
