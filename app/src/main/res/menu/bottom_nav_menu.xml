@@ -6,7 +6,7 @@
         android:icon="@drawable/home" /> <item
     android:id="@+id/nav_cars"
     android:title="Cars"
-    android:icon="@drawable/ic_car_black_24dp" />
+    android:icon="@drawable/home" />
 
     <item
         android:id="@+id/nav_myorders"
