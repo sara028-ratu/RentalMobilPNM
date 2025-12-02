@@ -1,16 +1,17 @@
+package com.example.rentalmobilpnm
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rentalmobilpnm.HelpModel
 
-class `HelpAdapter.kt`(private val listHelp: ArrayList<HelpModel>) :
-    RecyclerView.Adapter<`HelpAdapter.kt`.ViewHolder>() {
+class HelpAdapter(private val listHelp: ArrayList<HelpModel>) :
+    RecyclerView.Adapter<HelpAdapter.ViewHolder>() {
 
     // 1. ViewHolder: Mengenalkan komponen yang ada di layout item_help_step
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNumber: TextView = itemView.findViewById(R.id.tvStepNumber)
+        val tvNumber: TextView = itemView.findViewById(R.id.tvSetNumber)
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val tvDesc: TextView = itemView.findViewById(R.id.tvDesc)
     }

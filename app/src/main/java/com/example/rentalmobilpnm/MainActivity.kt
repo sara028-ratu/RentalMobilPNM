@@ -3,8 +3,6 @@ package com.example.rentalmobilpnm
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
                 R.id.nav_myorders -> loadFragment(MyOrdersFragment())
-                R.id.nav_help -> loadFragment(HelpFragment())
+                R.id.nav_help -> loadFragment(`HelpFragment.kt`())
                 R.id.nav_profile -> loadFragment(ProfileFragment())
             }
             true
