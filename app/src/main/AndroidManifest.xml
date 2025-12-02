@@ -13,29 +13,21 @@
         android:theme="@style/Theme.RentalMobilPNM"
         tools:targetApi="34">
 
-        <!-- 1. MainActivity jadi Home utama (Car List) -->
+        <!-- LOGIN JADI HALAMAN PERTAMA -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="Rental Mobil PNM">
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- 2. LoginActivity (kalau masih dipakai) -->
+        <!-- ACTIVITY LAIN -->
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-
-        <!-- 3. Home (kelas lama) SUDAH TIDAK DIPAKAI → HAPUS SAJA -->
-        <!-- Baris ini sudah saya komentari supaya aman dihapus -->
-        <!--
-        <activity
-            android:name=".Home"
-            android:exported="false" />
-        -->
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Daftar Mobil" />
 
     </application>
 

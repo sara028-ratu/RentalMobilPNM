@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // LOGIN
+            // LOGIN SEDERHANA (bisa diganti DB nanti)
             if (username == "admin" && password == "123") {
                 Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
 

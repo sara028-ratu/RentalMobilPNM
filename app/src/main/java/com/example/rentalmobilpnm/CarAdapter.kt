@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
 
-    // ViewHolder pakai findViewById biasa
     class CarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivCar: ImageView = itemView.findViewById(R.id.ivCar)
         val tvBrand: TextView = itemView.findViewById(R.id.tvBrand)
@@ -25,9 +24,12 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         val car = cars[position]
+
+        holder.ivCar.setImageResource(car.image)   // ⬅ penting: tampilkan gambar
         holder.tvBrand.text = car.brand
         holder.tvModel.text = car.model
         holder.tvPrice.text = car.price
     }
+
     override fun getItemCount() = cars.size
 }
