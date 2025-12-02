@@ -10,18 +10,17 @@ data class Car(
     val brand: String,
     val model: String,
     val price: String,
-    val imageRes: Int
 )
 
 class MainActivity : AppCompatActivity() {
 
     private val carList = listOf(
-        Car("Honda", "Civic Turbo", "Rp 650.000/hari", R.drawable.car1),
-        Car("Toyota", "Fortuner VRZ", "Rp 900.000/hari", R.drawable.car2),
-        Car("Toyota", "Camry", "Rp 1.200.000/hari", R.drawable.car3),
-        Car("Honda", "HR-V Prestige", "Rp 750.000/hari", R.drawable.car4),
-        Car("Toyota", "Innova Reborn", "Rp 800.000/hari", R.drawable.car5),
-        Car("Toyota", "Camry", "Rp 1.250.000/hari", R.drawable.car6)
+        Car("Honda", "Civic Turbo", "Rp 650.000/hari"),
+        Car("Toyota", "Fortuner VRZ", "Rp 900.000/hari"),
+        Car("Toyota", "Camry", "Rp 1.200.000/hari"),
+        Car("Honda", "HR-V Prestige", "Rp 750.000/hari"),
+        Car("Toyota", "Innova Reborn", "Rp 800.000/hari"),
+        Car("Toyota", "Camry", "Rp 1.250.000/hari")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
