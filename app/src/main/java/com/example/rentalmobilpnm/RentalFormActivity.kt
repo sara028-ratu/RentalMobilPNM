@@ -13,6 +13,13 @@ class RentalFormActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rental_form)
 
         // Semua ID dari XML
+        val carName = intent.getStringExtra("car_name")
+        val carYear = intent.getStringExtra("car_year")
+        val carTrans = intent.getStringExtra("car_trans")
+        val carCapacity = intent.getStringExtra("car_capacity")
+        val carPrice = intent.getStringExtra("car_price")
+        val carImage = intent.getIntExtra("car_image", 0)
+
         val etStartDate = findViewById<EditText>(R.id.etStartDate)
         val etDuration = findViewById<EditText>(R.id.etDuration)
         val switchDriver = findViewById<Switch>(R.id.switchDriver)
