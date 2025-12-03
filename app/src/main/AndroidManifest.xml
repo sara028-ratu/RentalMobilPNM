@@ -13,9 +13,6 @@
         android:theme="@style/Theme.RentalMobilPNM"
         tools:targetApi="34" >
         <activity
-            android:name=".CarListAdapter"
-            android:exported="false" />
-        <activity
             android:name=".CarDetailActivity"
             android:exported="false" />
         <activity
