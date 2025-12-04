@@ -12,12 +12,16 @@ class RentalFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rental_form)
 
+        val brand = intent.getStringExtra("brand")
+        val model = intent.getStringExtra("model")
+        val price = intent.getStringExtra("price")
+        val image = intent.getStringExtra("image")
+
         // Semua ID dari XML
         val etStartDate = findViewById<EditText>(R.id.etStartDate)
         val etDuration = findViewById<EditText>(R.id.etDuration)
         val switchDriver = findViewById<Switch>(R.id.switchDriver)
         val btnConfirmPay = findViewById<Button>(R.id.btnConfirmPay)
-        val btnChangeCar = findViewById<TextView>(R.id.btnChangeCar)
 
         // TOMBOL KALENDER
         etStartDate.setOnClickListener {
@@ -43,12 +47,6 @@ class RentalFormActivity : AppCompatActivity() {
             }
         }
 
-
-        // TOMBOL UBAH MOBIL
-        btnChangeCar.setOnClickListener {
-            Toast.makeText(this, "Pilih mobil lain", Toast.LENGTH_SHORT).show()
-            // nanti bisa buka activity daftar mobil
-        }
 
 
         // TOMBOL CONFIRM & PAY

@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rentalmobilpnm.databinding.ActivityCarDetailBinding
 import java.util.Calendar
+import android.content.Intent
+
 
 class CarDetailActivity : AppCompatActivity() {
 
@@ -53,7 +55,10 @@ class CarDetailActivity : AppCompatActivity() {
 
         // tombol sewa (lanjut ke payment nanti)
         binding.btnRent.setOnClickListener {
-            // TODO: implementasi lanjut ke Payment / Confirmation
+            val intent = Intent(this, RentalFormActivity::class.java)
+
+
+            startActivity(intent)
         }
     }
 

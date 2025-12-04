@@ -19,7 +19,9 @@
             android:name=".CarListActivity"
             android:exported="false" /> <!-- LOGIN JADI HALAMAN PERTAMA -->
 
-        <activity android:name=".RentalFormActivity" />
+        <activity
+            android:name=".RentalFormActivity"
+            android:exported="false" />
 
         <activity
             android:name=".LoginActivity"

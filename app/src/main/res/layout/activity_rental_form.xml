@@ -73,14 +73,6 @@
             </LinearLayout>
 
             <!-- Tombol Ubah -->
-            <TextView
-                android:id="@+id/btnChangeCar"
-                android:text="Ubah"
-                android:textColor="#D32F2F"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
 
