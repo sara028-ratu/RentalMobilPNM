@@ -1,12 +1,9 @@
 package com.example.rentalmobilpnm
 
-import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rentalmobilpnm.databinding.ActivityCarDetailBinding
-import java.util.Calendar
-import android.content.Intent
-
 
 class CarDetailActivity : AppCompatActivity() {
 
@@ -17,59 +14,36 @@ class CarDetailActivity : AppCompatActivity() {
         binding = ActivityCarDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil data dari Intent (nama key sesuai yang dikirim dari Adapter)
-        val brandModel = intent.getStringExtra("brand") ?: intent.getStringExtra("car_name")
-        val model = intent.getStringExtra("model")
-        val price = intent.getStringExtra("price") ?: intent.getStringExtra("car_price")
-        val imageRes = intent.getIntExtra("image", intent.getIntExtra("car_image", 0))
+        // Ambil data dari Intent
+        val brand = intent.getStringExtra("brand") ?: "-"
+        val model = intent.getStringExtra("model") ?: "-"
+        val seats = intent.getStringExtra("seats") ?: "-"
+        val transmission = intent.getStringExtra("transmission") ?: "-"
+        val fuel = intent.getStringExtra("fuel") ?: "-"
+        val year = intent.getIntExtra("year", 0)
+        val price = intent.getIntExtra("price", 0)
+        val image = intent.getIntExtra("image", 0)
+        val description = intent.getStringExtra("description") ?: "-"
+        val features = intent.getStringExtra("features") ?: "-"
 
-        // Set ke tampilan (sesuai id di activity_car_detail.xml)
-        // XML kamu menggunakan: txtCarName, txtCarYear, txtTransmission, txtCapacity, txtPrice, imgCar, btnBack, etStartDate, etEndDate, btnRent
-        binding.txtCarName.text = brandModel ?: "Nama Mobil"
-        // Jika kamu mengirim tahun/transmisi/kapasitas lewat intent, ambil dan set juga:
-        val year = intent.getStringExtra("car_year")
-        val trans = intent.getStringExtra("car_trans")
-        val capacity = intent.getStringExtra("car_capacity")
+        // Set tampilan
+        binding.txtCarName.text = "$brand $model"
+        binding.txtSeats.text = "$seats"
+        binding.txtTransmission.text = transmission
+        binding.txtFuel.text = fuel
+        binding.txtYear.text = "$year"
+        binding.txtPrice.text = "Rp $price / hari"
+        binding.txtDescription.text = description
+        binding.txtFeatures.text = features
 
-        if (!year.isNullOrEmpty()) binding.txtCarYear.text = "Tahun: $year"
-        if (!trans.isNullOrEmpty()) binding.txtTransmission.text = "Transmisi: $trans"
-        if (!capacity.isNullOrEmpty()) binding.txtCapacity.text = capacity
+        if (image != 0) binding.imgCar.setImageResource(image)
 
-        binding.txtPrice.text = price ?: "Harga: -"
-
-        if (imageRes != 0) {
-            binding.imgCar.setImageResource(imageRes)
-        }
-
-        // tombol kembali
-        binding.btnBack.setOnClickListener { finish() }
-
-        // date pickers untuk EditText yang non-focusable
-        binding.etStartDate.setOnClickListener {
-            showDatePicker { dateStr -> binding.etStartDate.setText(dateStr) }
-        }
-
-        binding.etEndDate.setOnClickListener {
-            showDatePicker { dateStr -> binding.etEndDate.setText(dateStr) }
-        }
-
-        // tombol sewa (lanjut ke payment nanti)
+        // Tombol untuk buka form penyewaan
         binding.btnRent.setOnClickListener {
             val intent = Intent(this, RentalFormActivity::class.java)
-
-
+            intent.putExtra("car_name", "$brand $model")
+            intent.putExtra("car_price", price)
             startActivity(intent)
         }
-    }
-
-    private fun showDatePicker(onSelect: (String) -> Unit) {
-        val c = Calendar.getInstance()
-        val y = c.get(Calendar.YEAR)
-        val m = c.get(Calendar.MONTH)
-        val d = c.get(Calendar.DAY_OF_MONTH)
-
-        DatePickerDialog(this, { _, year, month, dayOfMonth ->
-            onSelect(String.format("%02d-%02d-%04d", dayOfMonth, month + 1, year))
-        }, y, m, d).show()
     }
 }
