@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rp 1.200.000/hari"
                 android:textSize="16sp"
-                android:textColor="#0066CC"
+                android:textColor="#D32F2F"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
 
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#0066CC"
+                android:backgroundTint="#D32F2F"
                 android:text="Sewa Sekarang"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"/>

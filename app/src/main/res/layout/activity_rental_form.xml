@@ -3,256 +3,235 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F6FA"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="0dp">
 
-        <!-- CARD ATAS: INFO MOBIL -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="12dp"
-            android:background="@drawable/card_bg"
-            android:elevation="4dp">
+            android:layout_margin="16dp"
+            android:padding="28dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true">
 
-            <!-- Gambar Mobil -->
-            <ImageView
-                android:id="@+id/imgCarSmall"
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/civic_turbo" />
 
-            <!-- TEXT AREA -->
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
+        <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="12dp">
+                android:orientation="vertical">
 
-                <!-- Nama Mobil -->
+                <!-- TITLE -->
                 <TextView
-                    android:id="@+id/txtCarName"
-                    android:text="Civic Turbo"
-                    android:textSize="16sp"
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FORM PENYEWAAN MOBIL"
+                    android:textSize="22sp"
+                    android:textColor="#2A2A2A"
                     android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="20dp" />
 
-                <!-- Harga -->
+                <!-- NAMA MOBIL -->
                 <TextView
-                    android:id="@+id/txtCarPrice"
-                    android:text="Rp 650.000 / hari"
-                    android:textSize="14sp"
-                    android:textColor="#FF333333"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <!-- ROW ICON + TEXT -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="4dp">
-
-                    <TextView
-                        android:id="@+id/txtCarSeats"
-                        android:text="7 seats"
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- Tombol Ubah -->
-        </LinearLayout>
-
-
-        <!-- RENTAL DETAILS TITLE -->
-        <TextView
-            android:text="Rental Details"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <!-- CARD RENTAL FORM -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/card_bg">
-
-            <!-- Tanggal Mulai -->
-            <TextView
-                android:text="Tanggal Mulai"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/etStartDate"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/edittext_bg"
-                android:drawableEnd="@drawable/calendar"
-                android:padding="10dp"
-                android:focusable="false"
-                android:hint="Pilih Tanggal"/>
-
-            <!-- Duration -->
-            <TextView
-                android:text="Waktu Rental (Hari)"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/etDuration"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:inputType="number"
-                android:background="@drawable/edittext_bg"
-                android:padding="10dp"
-                android:hint="Masukkan Hari"/>
-
-            <!-- Driver Option -->
-            <TextView
-                android:text="Opsi Driver"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="4dp">
-
-                <TextView
-                    android:text="Dengan Driver?"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <Switch
-                    android:id="@+id/switchDriver"
+                    android:text="NAMA MOBIL"
+                    android:textStyle="bold"
+                    android:textColor="#333"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtCarName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#555"
+                    android:paddingBottom="10dp"/>
+
+                <!-- HARGA -->
+                <TextView
+                    android:text="HARGA / HARI"
+                    android:textStyle="bold"
+                    android:textColor="#333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#555"
+                    android:paddingBottom="10dp"/>
+
+                <!-- NAMA PENYEWA -->
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Lengkap Penyewa"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- NOMOR HP -->
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nomor HP"
+                    android:inputType="phone"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- ALAMAT -->
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat Lengkap Penyewa"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- TANGGAL MULAI -->
+                <EditText
+                    android:id="@+id/etStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tanggal Mulai"
+                    android:focusable="false"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- TANGGAL SELESAI -->
+                <EditText
+                    android:id="@+id/etEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tanggal Selesai"
+                    android:focusable="false"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- LAMA SEWA -->
+                <EditText
+                    android:id="@+id/etDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Lama Sewa (Hari)"
+                    android:inputType="number"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- DRIVER OPTION -->
+                <TextView
+                    android:text="Butuh Driver?"
+                    android:textStyle="bold"
+                    android:textColor="#D32F2F"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"/>
+
+                <Spinner
+                    android:id="@+id/spDriver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- ALAMAT PENGIRIMAN -->
+                <EditText
+                    android:id="@+id/etDeliveryAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat Pengiriman Mobil (Wajib jika pakai driver)"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- ALAMAT PENJEMPUTAN -->
+                <EditText
+                    android:id="@+id/etPickupAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat Penjemputan (Opsional)"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- CATATAN TAMBAHAN -->
+                <EditText
+                    android:id="@+id/etNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Catatan Tambahan (Opsional)"
+                    android:padding="14dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
+                    android:textColor="#222"
+                    android:textColorHint="#999"/>
+
+                <!-- HITUNG -->
+                <Button
+                    android:id="@+id/btnCalculate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hitung Total"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:layout_marginTop="20dp"
+                    android:padding="12dp"/>
+
+                <!-- TOTAL -->
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total: -"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A2A2A"
+                    android:layout_marginTop="15dp"/>
+
+                <!-- SUBMIT -->
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Konfirmasi Pesanan"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#D32F2F"
+                    android:padding="12dp"
+                    android:layout_marginTop="25dp"/>
+
             </LinearLayout>
 
-            <!-- Pickup -->
-            <TextView
-                android:text="Alamat Pengirim"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
 
-            <EditText
-                android:id="@+id/etPickup"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="10dp"
-                android:hint="Masukkan Alamat"/>
-
-            <!-- Return -->
-            <TextView
-                android:text="Alamat Penjemputan (Optional)"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/etReturn"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="10dp"
-                android:hint="Masukkan ALamat(optional)"/>
-
-            <!-- Notes -->
-            <TextView
-                android:text="Tinggalkan Catatan"
-                android:layout_marginTop="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/etNotes"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="top"
-                android:background="@drawable/edittext_bg"
-                android:padding="10dp"
-                android:hint="Permintaan atau catatan..." />
-        </LinearLayout>
-
-
-        <!-- PAYMENT SUMMARY -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/card_bg">
-
-            <TextView
-                android:id="@+id/txtRentalSubtotal"
-                android:text="Rental Mobil           Rp 650.000"
-                android:textSize="14sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/txtServiceFee"
-                android:text="Service Fee              $15"
-                android:textSize="14sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"/>
-
-            <TextView
-                android:text="Total Payment"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/txtTotal"
-                android:text="Rp 650.000"
-                android:textColor="#D32F2F"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <!-- BUTTON -->
-        <Button
-            android:id="@+id/btnConfirmPay"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Confirm and Pay"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:backgroundTint="#D32F2F"
-            android:layout_marginTop="12dp"/>
     </LinearLayout>
-
 </ScrollView>
