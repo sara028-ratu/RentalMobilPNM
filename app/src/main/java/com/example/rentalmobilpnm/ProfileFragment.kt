@@ -1,59 +1,65 @@
 package com.example.rentalmobilpnm
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 1. Kenalkan TextView Nama & Email dari XML
+        val tvName = view.findViewById<TextView>(R.id.tvUserName) // Pastikan ID di XML sudah ada
+        val tvEmail = view.findViewById<TextView>(R.id.tvUserEmail)
+
+        // 2. Buka "Buku Catatan" yang sama (UserSession)
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+
+        // 3. Ambil data (Kalau kosong, defaultnya "Tamu")
+        val namaDisimpan = sharedPref.getString("nama_user", "Tamu")
+
+        // 4. Tampilkan ke layar
+        tvName.text = namaDisimpan
+        tvEmail.text = "$namaDisimpan@student.poltek-madiun.ac.id" // Contoh format email otomatis
+
+        // 1. Definisikan Tombol Edit
+        val btnEdit = view.findViewById<LinearLayout>(R.id.btnEditProfile)
+
+        // 2. Logic saat diklik (PINDAH HALAMAN AMAN)
+        btnEdit.setOnClickListener {
+
+            // A. Panggil Fragment Manager
+            val transaction = parentFragmentManager.beginTransaction()
+
+            // B. Ganti layar saat ini dengan EditProfileFragment
+            // PENTING: Pastikan R.id.fragment_container adalah ID yang ada di MainActivity-mu
+            transaction.replace(R.id.fragment_container, EditProfileFragment())
+
+            // C. Masukkan ke BackStack (Supaya bisa di-Back)
+            transaction.addToBackStack(null)
+
+            // D. Jalankan
+            transaction.commit()
+        }
+
+        // Logic Logout (Opsional)
+        val btnLogout = view.findViewById<LinearLayout>(R.id.btnLogout)
+        btnLogout.setOnClickListener {
+            Toast.makeText(context, "Logout Berhasil", Toast.LENGTH_SHORT).show()
+        }
     }
 }

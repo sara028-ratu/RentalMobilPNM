@@ -33,22 +33,29 @@ class LoginActivity : AppCompatActivity() {
             val username = edtUsername.text.toString().trim()
             val password = edtPassword.text.toString().trim()
 
+            // 1. Validasi: Cuma cek apakah kosong atau tidak
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Username dan Password tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username dan Password harus diisi!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // LOGIN SEDERHANA (bisa diganti DB nanti)
-            if (username == "admin" && password == "123") {
-                Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+            // --- BAGIAN LAMA DIHAPUS ---
+            // if (username == "admin" && password == "123") { ... }  <-- INI HAPUS
 
-                // Pindah ke MainActivity
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish() // agar tidak bisa kembali ke halaman login
-            } else {
-                Toast.makeText(this, "Username atau Password salah!", Toast.LENGTH_SHORT).show()
-            }
+            // --- GANTI DENGAN LOGIC BARU (LANGSUNG TERIMA) ---
+
+            // 2. Simpan Nama User (Agar muncul di halaman Profile nanti)
+            val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putString("nama_user", username) // Simpan apapun yang diketik user
+            editor.apply()
+
+            // 3. Beri sapaan dan Pindah Halaman
+            Toast.makeText(this, "Selamat Datang, $username!", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

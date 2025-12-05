@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // ======== BOTTOM NAVIGATION ==========
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // Tampilkan HomeFragment saat aplikasi dibuka
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         // Listener bottom navigation
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.nav_home -> loadFragment(HomeFragment())
+                R.id.nav_myorders -> loadFragment(MyOrdersFragment())
+                R.id.nav_help -> loadFragment(HelpFragment())
+                R.id.nav_profile -> loadFragment(ProfileFragment())
 
                 R.id.nav_home -> {
                     loadFragment(HomeFragment())
