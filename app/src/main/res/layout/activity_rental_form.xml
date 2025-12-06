@@ -15,7 +15,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="2dp"
             android:padding="28dp"
             app:cardElevation="6dp"
             app:cardCornerRadius="16dp"
@@ -55,14 +55,15 @@
                     android:paddingBottom="10dp"/>
 
                 <!-- HARGA -->
-                <TextView
-                    android:text="HARGA / HARI"
-                    android:textStyle="bold"
-                    android:textColor="#333"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
-                <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HARGA / HARI"
+                android:textColor="#333"
+                android:textStyle="bold" />
+
+            <TextView
                     android:id="@+id/txtPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
