@@ -1,5 +1,6 @@
 package com.example.rentalmobilpnm
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,34 +16,39 @@ class EditProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Hubungkan dengan layout XML Edit Profile yang tadi kita buat
         return inflater.inflate(R.layout.fragment_edit_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Kenalkan Komponen Input & Tombol
+        // 1. Kenalkan Komponen Input
         val etName = view.findViewById<EditText>(R.id.etEditName)
         val etPhone = view.findViewById<EditText>(R.id.etEditPhone)
         val etAddress = view.findViewById<EditText>(R.id.etEditAddress)
         val btnSave = view.findViewById<Button>(R.id.btnSaveChanges)
 
-        // 2. Aksi saat tombol Save diklik
+        // 2. Logic Simpan Data
         btnSave.setOnClickListener {
-            // Ambil teks yang diketik user
             val nama = etName.text.toString()
             val hp = etPhone.text.toString()
             val alamat = etAddress.text.toString()
 
-            // Validasi sederhana (Cek kalau kosong)
             if (nama.isEmpty() || hp.isEmpty() || alamat.isEmpty()) {
                 Toast.makeText(context, "Harap isi semua data!", Toast.LENGTH_SHORT).show()
             } else {
-                // Simulasi Simpan Data
-                Toast.makeText(context, "Data $nama berhasil disimpan!", Toast.LENGTH_SHORT).show()
+                // --- PROSES SIMPAN DATA KE MEMORI HP ---
+                val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
 
-                // Kembali ke halaman Profile secara otomatis setelah simpan
+                editor.putString("nama_lengkap", nama)
+                editor.putString("nomor_telepon", hp)
+                editor.putString("alamat_user", alamat)
+                editor.apply() // Simpan permanen
+
+                Toast.makeText(context, "Data Berhasil Disimpan!", Toast.LENGTH_SHORT).show()
+
+                // Kembali ke halaman Profile
                 parentFragmentManager.popBackStack()
             }
         }

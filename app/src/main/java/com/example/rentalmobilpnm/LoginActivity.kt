@@ -13,6 +13,18 @@ import androidx.core.view.WindowInsetsCompat
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // CEK APAKAH SUDAH LOGIN?
+        val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+        // Kalau di dalam buku catatan sudah ada "email_user", berarti user belum logout
+        if (sharedPref.contains("email_user")) {
+            // Langsung lempar ke MainActivity (Lewati Login)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+            return // Berhenti di sini, jangan lanjut tampilkan layout login
+        }
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
@@ -47,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
             // 2. Simpan Nama User (Agar muncul di halaman Profile nanti)
             val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
             val editor = sharedPref.edit()
-            editor.putString("nama_user", username) // Simpan apapun yang diketik user
+            editor.putString("email_user", username) // Simpan apapun yang diketik user
             editor.apply()
 
             // 3. Beri sapaan dan Pindah Halaman
