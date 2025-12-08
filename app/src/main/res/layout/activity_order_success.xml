@@ -1,52 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="30dp">
+    android:background="#F8F5FF">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@android:drawable/checkbox_on_background"
-        android:tint="#4CAF50" />
-
-    <!-- JUDUL SUKSES -->
-    <TextView
-        android:id="@+id/txtSuccess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pemesanan Berhasil!"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingTop="20dp"
-        android:gravity="center" />
-
-    <!-- ISI RINGKASAN PESANAN -->
-    <TextView
-        android:id="@+id/txtSummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ringkasan Pesanan"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:padding="20dp" />
-
-    <TextView
-        android:id="@+id/txtOrderInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detail pesanan akan dikirim melalui email atau WhatsApp."
-        android:textSize="16sp"
-        android:gravity="center"
-        android:padding="10dp" />
-
-    <Button
-        android:id="@+id/btnBackHome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kembali ke Beranda"
-        android:layout_marginTop="30dp" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</LinearLayout>
+        <!-- CHECK ICON -->
+        <ImageView
+            android:id="@+id/imgSuccess"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@android:drawable/checkbox_on_background"
+            android:tint="#4CAF50"
+            android:layout_marginTop="20dp"/>
+
+        <!-- TITLE -->
+        <TextView
+            android:id="@+id/txtSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pemesanan Berhasil!"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:padding="8dp"
+            android:gravity="center"/>
+
+        <!-- CARD RINGKASAN -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:elevation="6dp"
+            app:cardCornerRadius="16dp"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ringkasan Pesanan"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:paddingBottom="10dp"/>
+
+                <!-- DATA DETAIL -->
+                <TextView
+                    android:id="@+id/txtOrderInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Detail pesanan"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- INFO PENGIRIMAN -->
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail pesanan akan dikirim melalui email atau WhatsApp."
+            android:textSize="15sp"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp" />
+
+        <!-- BUTTON -->
+        <Button
+            android:id="@+id/btnBackHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali ke Beranda"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp"
+            android:padding="12dp"
+            android:backgroundTint="#D32F2F"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</ScrollView>

@@ -5,6 +5,7 @@ plugins {
 
 android {
 
+
     namespace = "com.example.rentalmobilpnm"
     compileSdk = 36
 
@@ -62,3 +63,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
