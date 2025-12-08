@@ -22,12 +22,24 @@ class HelpFragment: Fragment() {
 
         // 1. Siapkan Data (Sesuai Gambar Desain)
         val dataList = arrayListOf<HelpModel>()
-        dataList.add(HelpModel("1", "Browse Cars", "Open the Car List page and select a car you want to rent from our available fleet."))
-        dataList.add(HelpModel("2", "Fill Rental Details", "Choose rental date, duration, driver option, pickup/return address, and any special notes."))
-        dataList.add(HelpModel("3", "Review Order", "Check summary of charges including rental price, service fee, and total amount."))
-        dataList.add(HelpModel("4", "Confirm and Pay", "Confirm your rental details and complete the secure payment process."))
-        dataList.add(HelpModel("5", "Receive Car", "Car is delivered or picked up according to your selected details and schedule."))
-        dataList.add(HelpModel("6", "Return the Car", "Return the car based on the agreed location and schedule. Complete your rental!"))
+
+        // 1. Pilih Mobil
+        dataList.add(HelpModel("1", "Pilih Mobil", "Buka halaman Daftar Mobil dan pilih mobil yang ingin Anda sewa dari armada kami."))
+
+        // 2. Isi Detail
+        dataList.add(HelpModel("2", "Isi Detail Sewa", "Pilih tanggal sewa, durasi, opsi sopir, alamat antar/jemput, dan catatan khusus."))
+
+        // 3. Cek Pesanan
+        dataList.add(HelpModel("3", "Cek Pesanan", "Periksa rincian biaya termasuk harga sewa, biaya layanan, dan total tagihan."))
+
+        // 4. Bayar
+        dataList.add(HelpModel("4", "Konfirmasi & Bayar", "Konfirmasi detail sewa Anda dan selesaikan proses pembayaran yang aman."))
+
+        // 5. Terima Mobil
+        dataList.add(HelpModel("5", "Terima Mobil", "Mobil akan diantar atau diambil sesuai dengan detail dan jadwal yang Anda pilih."))
+
+        // 6. Kembalikan
+        dataList.add(HelpModel("6", "Kembalikan Mobil", "Kembalikan mobil sesuai lokasi dan jadwal yang disepakati. Sewa selesai!"))
 
         // 2. Panggil RecyclerView dari XML
         val rvHelp = view.findViewById<RecyclerView>(R.id.rvHelp)
