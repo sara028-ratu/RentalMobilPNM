@@ -1,5 +1,7 @@
 package com.example.rentalmobilpnm
 
+import android.content.Context // TAMBAHAN: Untuk akses penyimpanan
+import android.content.Intent // TAMBAHAN: Untuk pindah halaman
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rentalmobilpnm.databinding.ActivityOrderSuccessBinding
@@ -13,7 +15,7 @@ class OrderSuccessActivity : AppCompatActivity() {
         binding = ActivityOrderSuccessBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Terima data dari RentalFormActivity
+        // 1. Terima data dari RentalFormActivity
         val name = intent.getStringExtra("customer_name") ?: "-"
         val phone = intent.getStringExtra("phone") ?: "-"
         val car = intent.getStringExtra("car_name") ?: "-"
@@ -26,7 +28,23 @@ class OrderSuccessActivity : AppCompatActivity() {
         val pickup = intent.getStringExtra("pickup") ?: "-"
         val notes = intent.getStringExtra("notes") ?: "-"
 
-        // Tampilkan ringkasan
+
+        // --- [BAGIAN PENTING] TAMBAHAN DARI KAMU (SIMPAN DATA) ---
+        // Kita simpan data ini ke "MyOrderHistory" agar bisa dibaca di MyOrderFragment
+        val sharedPref = getSharedPreferences("MyOrderHistory", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        editor.putString("history_car", car)           // Simpan Nama Mobil
+        editor.putString("history_date", "$start s/d $end") // Simpan Tanggal Gabungan
+        editor.putString("history_price", "Rp $total") // Simpan Harga
+        editor.putString("history_status", "Aktif")    // Simpan Status
+        editor.putBoolean("has_history", true)         // Penanda bahwa ada pesanan
+
+        editor.apply() // Simpan Permanen!
+        // ---------------------------------------------------------
+
+
+        // 2. Tampilkan ringkasan (Ini kode asli temanmu)
         binding.txtSummary.text =
             """
             Pemesanan Berhasil!
@@ -50,7 +68,14 @@ class OrderSuccessActivity : AppCompatActivity() {
             Total Pembayaran: Rp $total
             """.trimIndent()
 
-        // Tombol kembali
-        binding.btnBackHome.setOnClickListener { finish() }
+        // 3. Tombol kembali (SAYA UBAH SEDIKIT)
+        binding.btnBackHome.setOnClickListener {
+            // Kita arahkan ke MainActivity (Home)
+            val intent = Intent(this, MainActivity::class.java)
+            // Bendera ini supaya aplikasi tidak menumpuk halaman (bersih)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 }
