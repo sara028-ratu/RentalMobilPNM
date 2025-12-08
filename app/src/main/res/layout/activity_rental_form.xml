@@ -10,228 +10,217 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="0dp">
+        android:padding="16dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:padding="28dp"
+            android:layout_margin="8dp"
             app:cardElevation="6dp"
             app:cardCornerRadius="16dp"
             app:cardUseCompatPadding="true">
 
-
-        <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <!-- TITLE -->
                 <TextView
                     android:id="@+id/txtTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="20dp"
                     android:text="FORM PENYEWAAN MOBIL"
-                    android:textSize="22sp"
                     android:textColor="#2A2A2A"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:paddingBottom="20dp" />
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
-                <!-- NAMA MOBIL -->
+                <!-- LABEL + VALUE TEMPLATE -->
+                <!-- MOBIL -->
                 <TextView
                     android:text="NAMA MOBIL"
-                    android:textStyle="bold"
                     android:textColor="#333"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/txtCarName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#555"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp" />
 
                 <!-- HARGA -->
+                <TextView
+                    android:text="HARGA / HARI"
+                    android:textColor="#333"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HARGA / HARI"
-                android:textColor="#333"
-                android:textStyle="bold" />
-
-            <TextView
+                <TextView
                     android:id="@+id/txtPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#555"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp" />
 
-                <!-- NAMA PENYEWA -->
+                <!-- INPUT FIELDS -->
                 <EditText
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nama Lengkap Penyewa"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:hint="Nama Lengkap Penyewa"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- NOMOR HP -->
                 <EditText
                     android:id="@+id/etPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
                     android:hint="Nomor HP"
                     android:inputType="phone"
                     android:padding="14dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/rounded_input"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- ALAMAT -->
                 <EditText
                     android:id="@+id/etAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Alamat Lengkap Penyewa"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:hint="Alamat Lengkap Penyewa"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- TANGGAL MULAI -->
                 <EditText
                     android:id="@+id/etStartDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Tanggal Mulai"
-                    android:focusable="false"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:focusable="false"
+                    android:hint="Tanggal Mulai"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- TANGGAL SELESAI -->
                 <EditText
                     android:id="@+id/etEndDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Tanggal Selesai"
-                    android:focusable="false"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:focusable="false"
+                    android:hint="Tanggal Selesai"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- LAMA SEWA -->
                 <EditText
                     android:id="@+id/etDays"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_input"
                     android:hint="Lama Sewa (Hari)"
                     android:inputType="number"
                     android:padding="14dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/rounded_input"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
                 <!-- DRIVER OPTION -->
                 <TextView
-                    android:text="Butuh Driver?"
-                    android:textStyle="bold"
-                    android:textColor="#D32F2F"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"/>
+                    android:layout_marginTop="15dp"
+                    android:text="Butuh Driver?"
+                    android:textColor="#D32F2F"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spDriver"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp" />
 
-                <!-- ALAMAT PENGIRIMAN -->
                 <EditText
                     android:id="@+id/etDeliveryAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Alamat Pengiriman Mobil (Wajib jika pakai driver)"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:hint="Alamat Pengiriman Mobil (Wajib jika pakai driver)"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- ALAMAT PENJEMPUTAN -->
                 <EditText
                     android:id="@+id/etPickupAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Alamat Penjemputan (Opsional)"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:hint="Alamat Penjemputan (Opsional)"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
-                <!-- CATATAN TAMBAHAN -->
                 <EditText
                     android:id="@+id/etNotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Catatan Tambahan (Opsional)"
-                    android:padding="14dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_input"
+                    android:hint="Catatan Tambahan (Opsional)"
+                    android:padding="14dp"
                     android:textColor="#222"
-                    android:textColorHint="#999"/>
+                    android:textColorHint="#999" />
 
                 <!-- HITUNG -->
                 <Button
                     android:id="@+id/btnCalculate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hitung Total"
-                    android:textColor="#FFFFFF"
-                    android:backgroundTint="#D32F2F"
                     android:layout_marginTop="20dp"
-                    android:padding="12dp"/>
+                    android:backgroundTint="#D32F2F"
+                    android:padding="12dp"
+                    android:text="Hitung Total"
+                    android:textColor="#FFFFFF" />
 
-                <!-- TOTAL -->
                 <TextView
                     android:id="@+id/txtTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="Total: -"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     android:textColor="#2A2A2A"
-                    android:layout_marginTop="15dp"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <!-- SUBMIT -->
                 <Button
                     android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Konfirmasi Pesanan"
-                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="25dp"
                     android:backgroundTint="#D32F2F"
                     android:padding="12dp"
-                    android:layout_marginTop="25dp"/>
+                    android:text="Konfirmasi Pesanan"
+                    android:textColor="#FFFFFF" />
 
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
