@@ -22,13 +22,13 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Kenalkan Komponen Input
+        // mendeklarasikan  Komponen Input
         val etName = view.findViewById<EditText>(R.id.etEditName)
         val etPhone = view.findViewById<EditText>(R.id.etEditPhone)
         val etAddress = view.findViewById<EditText>(R.id.etEditAddress)
         val btnSave = view.findViewById<Button>(R.id.btnSaveChanges)
 
-        // 2. Logic Simpan Data
+        //Logic Simpan Data
         btnSave.setOnClickListener {
             val nama = etName.text.toString()
             val hp = etPhone.text.toString()
@@ -37,7 +37,7 @@ class EditProfileFragment : Fragment() {
             if (nama.isEmpty() || hp.isEmpty() || alamat.isEmpty()) {
                 Toast.makeText(context, "Harap isi semua data!", Toast.LENGTH_SHORT).show()
             } else {
-                // --- PROSES SIMPAN DATA KE MEMORI HP ---
+                //PROSES SIMPAN DATA KE MEMORI HP
                 val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
 
