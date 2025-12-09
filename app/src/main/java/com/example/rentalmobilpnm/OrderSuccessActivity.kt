@@ -14,7 +14,6 @@ class OrderSuccessActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderSuccessBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // 1. Terima data dari RentalFormActivity
         val name = intent.getStringExtra("customer_name") ?: "-"
         val phone = intent.getStringExtra("phone") ?: "-"

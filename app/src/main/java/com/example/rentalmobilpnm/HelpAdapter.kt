@@ -25,7 +25,6 @@ class HelpAdapter(private val listHelp: ArrayList<HelpModel>) : RecyclerView.Ada
     // 3. Mengisi data ke tampilan (Looping terjadi disini)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = listHelp[position]
-
         holder.tvNumber.text = data.number
         holder.tvTitle.text = data.title
         holder.tvDesc.text = data.desc

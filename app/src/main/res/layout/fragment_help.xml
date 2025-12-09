@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#F5F5F5">
 
@@ -32,6 +33,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_help_step"
         android:id="@+id/rvHelp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
